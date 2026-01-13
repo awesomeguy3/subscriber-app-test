@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $email
  * @property string $name
  * @property integer $status
- * @property string $created_at
- * @property string $updated_at
  */
 class Subscriber extends Model
 {
@@ -17,7 +15,13 @@ class Subscriber extends Model
     const STATUS_UNSUBSCRIBED = 0;
     const STATUS_BOUNCED = 2;
 
-    public $timestamps = true;
+    public static $statuses = [
+        'subscribed' => self::STATUS_SUBSCRIBED,
+        'unsubscribed' => self::STATUS_UNSUBSCRIBED,
+        'bounced' => self::STATUS_BOUNCED,
+    ];
+
+    public $timestamps = false;
 
     protected $fillable = [
         'name',

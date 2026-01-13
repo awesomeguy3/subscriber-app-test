@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('email');
             $table->integer('status')->default(\App\Models\Subscriber::STATUS_SUBSCRIBED);
             $table->string('name')->nullable();
-            $table->timestamps();
         });
     }
 
